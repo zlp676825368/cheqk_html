@@ -1,0 +1,49 @@
+.title{
+    text-align: center;
+    font-size: 24px;
+}
+#tableTemplate table {
+    width: 100%;
+    border-spacing: 0px;
+    border: 1px solid #797979;
+    border-bottom: 0;
+}
+#tableTemplate table thead tr th {
+    padding: 8px 0;
+    text-align: center;
+    border-right: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    border-top: 1px solid #797979;
+    color: #333333;
+}
+
+ #tableTemplate th:last-child {
+    border-right:0;
+}
+
+ #tableTemplate tr td {
+    padding: 8px 0;
+    text-align: center;
+    border-right: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    border-top: 1px solid #797979;
+    color: #333333;
+}
+ #tableTemplate tr td:last-child {
+    border-right: 0;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+}
+.footer .item{
+    flex: 1;
+}
+.text{
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 0 20px;
+    border-radius: 2px;
+}

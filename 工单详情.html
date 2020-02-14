@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>工单列表</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+        rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/print.min.js"></script>
+    <style>
+        .container-fluid {
+            background-color: #F2F2F2;
+        }
+
+        .row {
+            margin: 20px;
+        }
+
+        .table>thead>tr>th {
+            vertical-align: middle;
+            background-color: #CCCCCC;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ccc;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        td {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .row .title {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .footer {
+            display: flex;
+            margin-top: 2%;
+        }
+
+        .footer .item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .footer .item label {
+            font-size: 14px;
+        }
+
+        .print {
+            margin: 50px;
+            text-align: center;
+        }
+
+        .print button {
+            border: 0;
+            border-radius: 4px;
+            background-color: #169BD5;
+            padding: 10px 50px;
+            cursor: pointer;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        #tableTemplate{
+            position: absolute;
+            top: -500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" id="tableTemplate">
+            <p class="title">天津服务中心销售/维修工作单</p>
+            <div class="table-responsive">
+                <table class="table table-condensed table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>客户名称</th>
+                            <th colspan="3">天津服务中心</th>
+                            <th>车辆牌号</th>
+                            <th colspan="3">苏AK383844</th>
+                            <th>工作单号</th>
+                            <th colspan="2">JCWH2019041000001</th>
+                        </tr>
+                        <tr>
+
+                            <th>科目</th>
+                            <th>品名</th>
+                            <th>规格</th>
+                            <th>型号</th>
+                            <th>产地</th>
+                            <th>物料新旧</th>
+                            <th>单位</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>总价</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2019-04-10 10:00</td>
+                            <td>JCWH2019041000001</td>
+                            <td>天津客运</td>
+                            <td>天津服务中心</td>
+                            <td>苏D9623挂</td>
+                            <td>维护/检测</td>
+                            <td>0.00</td>
+                            <td>155.00</td>
+                            <td>90.00</td>
+                            <td>113.00</td>
+
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2019-04-10 10:00</td>
+                            <td>JCWH2019041000002</td>
+                            <td>天津客运</td>
+                            <td>天津服务中心</td>
+                            <td>苏D9623挂</td>
+                            <td>维护/检测</td>
+                            <td>0.00</td>
+                            <td>155.00</td>
+                            <td>90.00</td>
+                            <td>113.00</td>
+
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2019-04-10 10:00</td>
+                            <td>JCWH2019041000003</td>
+                            <td>天津客运</td>
+                            <td>天津服务中心</td>
+                            <td>苏D9623挂</td>
+                            <td>维护/检测</td>
+                            <td>0.00</td>
+                            <td>155.00</td>
+                            <td>90.00</td>
+                            <td>113.00</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <div class="item">
+                        <label for="">合计金额：</label>
+                        <label for="">3652</label>
+                        <label for="">元</label>
+                    </div>
+                    <div class="item">
+                        <label for="">服务经办：</label>
+                        <label for="" class="text">张三</label>
+                    </div>
+                    <div class="item">
+                        <label for="">库管经办：</label>
+                        <label for="" class="text">李四</label>
+                    </div>
+                    <div class="item">
+                        <label for="">客户经办：</label>
+                        <label for="" class="text">王五</label>
+                       
+                    </div>
+                    <div class="item">
+                        <label for="">财务经办：</label>
+                        <label for="" class="text">老六</label>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-condensed table-bordered table-hover">
+                <tr>
+                    <td>客户名称</td>
+                    <td>金方舟</td>
+                    <td>车辆牌号</td>
+                    <td>津A1234</td>
+                    <td>里程表数</td>
+                    <td>1000</td>
+                    <td>挂车牌号</td>
+                    <td></td>
+                    <td>里程表数</td>
+                    <td></td>
+                    <td>工作单号</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <p class="title">物料销售</p>
+            <table class="table table-condensed table-bordered table-hover">
+                <tr>
+                    <th>来源</th>
+                    <th>品名</th>
+                    <th>品牌</th>
+                    <th>规格</th>
+                    <th>型号</th>
+                    <th>产地</th>
+                    <th>物料新旧</th>
+                    <th>单位</th>
+                    <th>生产编号</th>
+                    <th>去向</th>
+                    <th>数量</th>
+                    <th>单价</th>
+                    <th>金额</th>
+                </tr>
+                <tr>
+                    <td>金方舟</td>
+                    <td>胎压主机</td>
+                    <td>胎客</td>
+                    <td>CAN GPRS</td>
+                    <td>TM-CZD-A</td>
+                    <td>国产</td>
+                    <td>新物品</td>
+                    <td>只</td>
+                    <td>3265</td>
+                    <td>567-备胎</td>
+                    <td>1</td>
+                    <td>20</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <p class="title">物料租赁</p>
+            <table class="table table-condensed table-bordered table-hover">
+                <tr>
+                    <th>来源</th>
+                    <th>品名</th>
+                    <th>品牌</th>
+                    <th>规格</th>
+                    <th>型号</th>
+                    <th>产地</th>
+                    <th>物料新旧</th>
+                    <th>单位</th>
+                    <th>生产编号</th>
+                    <th>去向</th>
+                    <th>数量</th>
+                    <th>单价</th>
+                    <th>金额</th>
+                </tr>
+                <tr>
+                    <td>金方舟</td>
+                    <td>胎压主机</td>
+                    <td>胎客</td>
+                    <td>CAN GPRS</td>
+                    <td>TM-CZD-A</td>
+                    <td>国产</td>
+                    <td>新物品</td>
+                    <td>只</td>
+                    <td>3265</td>
+                    <td>567-备胎</td>
+                    <td>1</td>
+                    <td>20</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <p class="title">物料维修</p>
+            <table class="table table-condensed table-bordered table-hover" id="print">
+                <tr>
+                    <th>来源</th>
+                    <th>品名</th>
+                    <th>品牌</th>
+                    <th>规格</th>
+                    <th>型号</th>
+                    <th>产地</th>
+                    <th>物料新旧</th>
+                    <th>单位</th>
+                    <th>生产编号</th>
+                    <th>去向</th>
+                    <th>数量</th>
+                    <th>单价</th>
+                    <th>金额</th>
+                </tr>
+                <tr>
+                    <td>金方舟</td>
+                    <td>胎压主机</td>
+                    <td>胎客</td>
+                    <td>CAN GPRS</td>
+                    <td>TM-CZD-A</td>
+                    <td>国产</td>
+                    <td>新物品</td>
+                    <td>只</td>
+                    <td>3265</td>
+                    <td>567-备胎</td>
+                    <td>1</td>
+                    <td>20</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>金方舟</td>
+                    <td>胎压主机</td>
+                    <td>胎客</td>
+                    <td>CAN GPRS</td>
+                    <td>TM-CZD-A</td>
+                    <td>国产</td>
+                    <td>新物品</td>
+                    <td>只</td>
+                    <td>3265</td>
+                    <td>567-备胎</td>
+                    <td>1</td>
+                    <td>20</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <p class="title">车辆维修</p>
+            <table class="table table-condensed table-bordered table-hover">
+                <tr>
+                    <th>来源</th>
+                    <th>品名</th>
+                    <th>品牌</th>
+                    <th>规格</th>
+                    <th>型号</th>
+                    <th>产地</th>
+                    <th>物料新旧</th>
+                    <th>单位</th>
+                    <th>生产编号</th>
+                    <th>去向</th>
+                </tr>
+                <tr>
+                    <td>未知</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            <div class="item">
+                <label for="">服务经办：</label>
+                <input type="text" value="张三" />
+            </div>
+            <div class="item">
+                <label for="">库管经办：</label>
+                <input type="text" value="李四" />
+            </div>
+            <div class="item">
+                <label for="">客户经办：</label>
+                <input type="text" value="王五" />
+            </div>
+            <div class="item">
+                <label for="">财务经办：</label>
+                <input type="text" value="老六" />
+            </div>
+        </div>
+        <div class="print">
+            <button type="button" id="printTemplate">打印</button>
+        </div>
+    </div>
+    <script>
+        $(() => {
+            let someJSONdata = [
+                {
+                    name: 'John Doe',
+                    email: 'john@doe.com',
+                    phone: '111-111-1111'
+                },
+                {
+                    name: 'Barry Allen',
+                    email: 'barry@flash.com',
+                    phone: '222-222-2222'
+                },
+                {
+                    name: 'Cool Dude',
+                    email: 'cool@dude.com',
+                    phone: '333-333-3333'
+                }
+            ];
+            $("#printTemplate").on("click", (event) => {
+                printJS({ printable: 'tableTemplate', type: 'html', scanStyles: false, css: 'css/my_stylesheet.css' })
+
+            });
+        });
+    </script>
+</body>
+
+</html>
